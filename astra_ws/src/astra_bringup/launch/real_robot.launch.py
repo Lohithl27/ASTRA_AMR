@@ -33,7 +33,7 @@ def generate_launch_description():
     hardware_interface = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("mechabot_firmware"),
+                get_package_share_directory("astra_firmware"),
                 "launch",
                 "hardware_interface.launch.py"
             )
@@ -62,7 +62,7 @@ def generate_launch_description():
 
     controller = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("mechabot_controller"),
+            get_package_share_directory("astra_controller"),
             "launch",
             "controller.launch.py"
         ),
@@ -71,7 +71,7 @@ def generate_launch_description():
     joystick = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("mechabot_controller"),
+                get_package_share_directory("astra_controller"),
                 "launch",
                 "joystick.launch.py"
             )
@@ -80,24 +80,24 @@ def generate_launch_description():
     )
 
     imu_driver_node = Node(
-        package="mechabot_firmware",
+        package="astra_firmware",
         executable="mpu6050_driver.py",
     )
 
     lcd_driver_node = Node(
-        package="mechabot_firmware",
+        package="astra_firmware",
         executable="16x2lcd_driver.py",
     )
 
     ultrasonic_driver_node = Node(
-        package="mechabot_firmware",
+        package="astra_firmware",
         executable="hcsr04_driver.py",
     )
 
     localization = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("mechabot_localization"),
+                get_package_share_directory("astra_localization"),
                 "launch",
                 "global_localization.launch.py"
             )
@@ -111,7 +111,7 @@ def generate_launch_description():
 
     navigation = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("mechabot_navigation"),
+            get_package_share_directory("astra_navigation"),
             "launch",
             "navigation.launch.py"
         ),
@@ -120,7 +120,7 @@ def generate_launch_description():
     slam = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("mechabot_mapping"),
+                get_package_share_directory("astra_mapping"),
                 "launch",
                 "slam.launch.py"
             )

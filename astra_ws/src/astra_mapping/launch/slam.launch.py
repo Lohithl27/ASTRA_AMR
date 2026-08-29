@@ -20,7 +20,7 @@ def generate_launch_description():
     slam_config_arg = DeclareLaunchArgument(
         "slam_config",
         default_value=os.path.join(
-            get_package_share_directory("mechabot_mapping"),
+            get_package_share_directory("astra_mapping"),
             "config",
             "slam_toolbox.yaml"
         ),

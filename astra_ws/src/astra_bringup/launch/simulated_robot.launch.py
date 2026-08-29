@@ -6,14 +6,14 @@ from ament_index_python.packages import get_package_share_directory
 
 # Path to SLAM configuration
 slam_rviz_config_path = os.path.join(
-    get_package_share_directory('mechabot_mapping'),
+    get_package_share_directory('astra_mapping'),
     'rviz',
     'slam.rviz'
 )
 
 # Path to Localization configuration
 localization_rviz_config_path = os.path.join(
-    get_package_share_directory('mechabot_localization'),
+    get_package_share_directory('astra_localization'),
     'rviz',
     'global_localization.rviz'
 )
@@ -22,7 +22,7 @@ def generate_launch_description():
 
     gazebo = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("mechabot_description"),
+            get_package_share_directory("astra_description"),
             "launch",
             "gazebo.launch.py"
         ),
@@ -33,7 +33,7 @@ def generate_launch_description():
 
     controller = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("mechabot_controller"),
+            get_package_share_directory("astra_controller"),
             "launch",
             "controller.launch.py"
         ),
@@ -41,7 +41,7 @@ def generate_launch_description():
     
     joystick = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("mechabot_controller"),
+            get_package_share_directory("astra_controller"),
             "launch",
             "joystick.launch.py"
         ),
@@ -52,7 +52,7 @@ def generate_launch_description():
 
     slam = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("mechabot_mapping"),
+            get_package_share_directory("astra_mapping"),
             "launch",
             "slam.launch.py"
         ),
@@ -63,7 +63,7 @@ def generate_launch_description():
 
     global_localization = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("mechabot_localization"),
+            get_package_share_directory("astra_localization"),
             "launch", 
             "global_localization.launch.py"
             ),
@@ -71,7 +71,7 @@ def generate_launch_description():
 
     navigation = IncludeLaunchDescription(
             os.path.join(
-                get_package_share_directory("mechabot_navigation"),
+                get_package_share_directory("astra_navigation"),
                 "launch",
                 "navigation.launch.py"
             ),

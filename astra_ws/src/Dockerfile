@@ -1,6 +1,6 @@
 FROM osrf/ros:humble-desktop-full
 
-ENV ROS_WS=/root/mechabot_ws
+ENV ROS_WS=/root/astra_ws
 ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /root
@@ -13,10 +13,10 @@ RUN apt update && apt install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Clone the repository
-RUN git clone https://github.com/MechaMind-Labs/AMR-Mastery.git
+RUN git clone https://github.com/Lohithl27/ASTRA_AMR.git
 
 # Move the workspace to the expected location
-RUN mv AMR-Mastery/mechabot_ws $ROS_WS && \
+RUN mv ASTRA_AMR/astra_ws $ROS_WS && \
     rm -rf AMR-Mastery
 
 # Initialize rosdep

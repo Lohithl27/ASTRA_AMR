@@ -26,7 +26,7 @@ def generate_launch_description():
     amcl_config_arg = DeclareLaunchArgument(
         "amcl_config",
         default_value=os.path.join(
-            get_package_share_directory("mechabot_localization"),
+            get_package_share_directory("astra_localization"),
             "config",
             "amcl.yaml"
         ),
@@ -34,7 +34,7 @@ def generate_launch_description():
     )
 
     map_path = PathJoinSubstitution([
-        get_package_share_directory("mechabot_mapping"),
+        get_package_share_directory("astra_mapping"),
         "maps",
         map_name,
         "map.yaml"

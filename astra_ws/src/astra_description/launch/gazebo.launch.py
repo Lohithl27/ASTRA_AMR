@@ -13,11 +13,11 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    mechabot_description = get_package_share_directory("mechabot_description")
+    astra_description = get_package_share_directory("astra_description")
 
     model_arg = DeclareLaunchArgument(
         name="model", default_value=os.path.join(
-                mechabot_description, "urdf", "mechabot.urdf.xacro"
+                astra_description, "urdf", "astra.urdf.xacro"
             ),
         description="Absolute path to robot urdf file"
     )
@@ -25,14 +25,14 @@ def generate_launch_description():
     world_name_arg = DeclareLaunchArgument(name="world_name", default_value="small_house")
 
     world_path = PathJoinSubstitution([
-            mechabot_description,
+            astra_description,
             "worlds",
             PythonExpression(expression=["'", LaunchConfiguration("world_name"), "'", " + '.world'"])
         ]
     )
 
-    model_path = str(Path(mechabot_description).parent.resolve())
-    model_path += pathsep + os.path.join(get_package_share_directory("mechabot_description"), 'models')
+    model_path = str(Path(astra_description).parent.resolve())
+    model_path += pathsep + os.path.join(get_package_share_directory("astra_description"), 'models')
 
     gazebo_resource_path = SetEnvironmentVariable(
         "GZ_SIM_RESOURCE_PATH",
@@ -69,7 +69,7 @@ def generate_launch_description():
         output="screen",
         arguments=[
             "-topic", "robot_description",
-            "-name", "mechabot",
+            "-name", "astra",
             "-x", "1.5",  
             "-y", "5.18",  
             "-z", "0.0",  

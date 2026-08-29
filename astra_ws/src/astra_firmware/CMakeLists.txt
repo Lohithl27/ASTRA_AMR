@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(mechabot_firmware)
+project(astra_firmware)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -20,7 +20,7 @@ pkg_check_modules(SERIAL libserial)
 ament_python_install_package(${PROJECT_NAME})
 
 add_library(${PROJECT_NAME} SHARED 
-  src/mechabot_interface.cpp
+  src/astra_interface.cpp
 )
 target_include_directories(${PROJECT_NAME} PRIVATE 
   include
@@ -35,7 +35,7 @@ ament_target_dependencies(${PROJECT_NAME}
   rclcpp_lifecycle
 )
 
-pluginlib_export_plugin_description_file(hardware_interface mechabot_interface.xml)
+pluginlib_export_plugin_description_file(hardware_interface astra_interface.xml)
 
 install(
   TARGETS ${PROJECT_NAME}

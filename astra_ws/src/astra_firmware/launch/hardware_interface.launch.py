@@ -20,9 +20,9 @@ def generate_launch_description():
             [
                 "xacro ",
                 os.path.join(
-                    get_package_share_directory("mechabot_description"),
+                    get_package_share_directory("astra_description"),
                     "urdf",
-                    "mechabot.urdf.xacro",
+                    "astra.urdf.xacro",
                 ),
             " is_sim:=false",
             " serial_port:=", serial_port,
@@ -44,9 +44,9 @@ def generate_launch_description():
         parameters=[
             {'robot_description': robot_description, 'use_sim_time': False},
             os.path.join(
-                get_package_share_directory('mechabot_controller'),
+                get_package_share_directory('astra_controller'),
                 'config',
-                'mechabot_controllers.yaml',
+                'astra_controllers.yaml',
             ),
         ],
         output='screen',

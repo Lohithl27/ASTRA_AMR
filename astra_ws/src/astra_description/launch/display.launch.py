@@ -10,10 +10,10 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    mechabot_description_dir = get_package_share_directory("mechabot_description")
+    astra_description_dir = get_package_share_directory("astra_description")
 
     model_arg = DeclareLaunchArgument(name="model", default_value=os.path.join(
-                                        mechabot_description_dir, "urdf", "mechabot.urdf.xacro"
+                                        astra_description_dir, "urdf", "astra.urdf.xacro"
                                         ),
                                       description="Absolute path to robot urdf file")
     
@@ -42,7 +42,7 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="screen",
-        arguments=["-d", os.path.join(mechabot_description_dir, "rviz", "display.rviz")],
+        arguments=["-d", os.path.join(astra_description_dir, "rviz", "display.rviz")],
     )
 
     return LaunchDescription([

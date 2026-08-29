@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="mechabot_dock">
+  <model name="astra_dock">
     <link name="link">
       <inertial>
         <mass>1000</mass>
@@ -16,7 +16,7 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://mechabot_dock/meshes/mechabot_dock.stl</uri>
+            <uri>model://astra_dock/meshes/astra_dock.stl</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
@@ -35,7 +35,7 @@
       <visual name="visual">
 	    <geometry>
           <mesh>
-            <uri>model://mechabot_dock/meshes/mechabot_dock.stl</uri>
+            <uri>model://astra_dock/meshes/astra_dock.stl</uri>
             <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
