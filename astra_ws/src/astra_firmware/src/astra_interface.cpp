@@ -1,15 +1,15 @@
-#include "mechabot_firmware/mechabot_interface.hpp"
+#include "astra_firmware/astra_interface.hpp"
 #include <hardware_interface/types/hardware_interface_type_values.hpp>
 #include <pluginlib/class_list_macros.hpp>
 
-namespace mechabot_firmware
+namespace astra_firmware
 {
-MechabotInterface::MechabotInterface()
+AstraInterface::AstraInterface()
 {
 }
 
 
-MechabotInterface::~MechabotInterface()
+AstraInterface::~AstraInterface()
 {
   if (esp_.IsOpen())
   {
@@ -19,14 +19,14 @@ MechabotInterface::~MechabotInterface()
     }
     catch (...)
     {
-      RCLCPP_FATAL_STREAM(rclcpp::get_logger("MechabotInterface"),
+      RCLCPP_FATAL_STREAM(rclcpp::get_logger("AstraInterface"),
                           "Something went wrong while closing connection with port " << port_);
     }
   }
 }
 
 
-CallbackReturn MechabotInterface::on_init(const hardware_interface::HardwareInfo &hardware_info)
+CallbackReturn AstraInterface::on_init(const hardware_interface::HardwareInfo &hardware_info)
 {
   CallbackReturn result = hardware_interface::SystemInterface::on_init(hardware_info);
   if (result != CallbackReturn::SUCCESS)
@@ -40,7 +40,7 @@ CallbackReturn MechabotInterface::on_init(const hardware_interface::HardwareInfo
   }
   catch (const std::out_of_range &e)
   {
-    RCLCPP_FATAL(rclcpp::get_logger("MechabotInterface"), "No Serial Port provided! Aborting");
+    RCLCPP_FATAL(rclcpp::get_logger("AstraInterface"), "No Serial Port provided! Aborting");
     return CallbackReturn::FAILURE;
   }
 
@@ -53,7 +53,7 @@ CallbackReturn MechabotInterface::on_init(const hardware_interface::HardwareInfo
 }
 
 
-std::vector<hardware_interface::StateInterface> MechabotInterface::export_state_interfaces()
+std::vector<hardware_interface::StateInterface> AstraInterface::export_state_interfaces()
 {
   std::vector<hardware_interface::StateInterface> state_interfaces;
 
@@ -70,7 +70,7 @@ std::vector<hardware_interface::StateInterface> MechabotInterface::export_state_
 }
 
 
-std::vector<hardware_interface::CommandInterface> MechabotInterface::export_command_interfaces()
+std::vector<hardware_interface::CommandInterface> AstraInterface::export_command_interfaces()
 {
   std::vector<hardware_interface::CommandInterface> command_interfaces;
 
@@ -85,9 +85,9 @@ std::vector<hardware_interface::CommandInterface> MechabotInterface::export_comm
 }
 
 
-CallbackReturn MechabotInterface::on_activate(const rclcpp_lifecycle::State &)
+CallbackReturn AstraInterface::on_activate(const rclcpp_lifecycle::State &)
 {
-  RCLCPP_INFO(rclcpp::get_logger("MechabotInterface"), "Starting robot hardware ...");
+  RCLCPP_INFO(rclcpp::get_logger("AstraInterface"), "Starting robot hardware ...");
 
   // Reset commands and states
   velocity_commands_ = { 0.0, 0.0 };
@@ -101,20 +101,20 @@ CallbackReturn MechabotInterface::on_activate(const rclcpp_lifecycle::State &)
   }
   catch (...)
   {
-    RCLCPP_FATAL_STREAM(rclcpp::get_logger("MechabotInterface"),
+    RCLCPP_FATAL_STREAM(rclcpp::get_logger("AstraInterface"),
                         "Something went wrong while interacting with port " << port_);
     return CallbackReturn::FAILURE;
   }
 
-  RCLCPP_INFO(rclcpp::get_logger("MechabotInterface"),
+  RCLCPP_INFO(rclcpp::get_logger("AstraInterface"),
               "Hardware started, ready to take commands");
   return CallbackReturn::SUCCESS;
 }
 
 
-CallbackReturn MechabotInterface::on_deactivate(const rclcpp_lifecycle::State &)
+CallbackReturn AstraInterface::on_deactivate(const rclcpp_lifecycle::State &)
 {
-  RCLCPP_INFO(rclcpp::get_logger("MechabotInterface"), "Stopping robot hardware ...");
+  RCLCPP_INFO(rclcpp::get_logger("AstraInterface"), "Stopping robot hardware ...");
 
   if (esp_.IsOpen())
   {
@@ -124,17 +124,17 @@ CallbackReturn MechabotInterface::on_deactivate(const rclcpp_lifecycle::State &)
     }
     catch (...)
     {
-      RCLCPP_FATAL_STREAM(rclcpp::get_logger("MechabotInterface"),
+      RCLCPP_FATAL_STREAM(rclcpp::get_logger("AstraInterface"),
                           "Something went wrong while closing connection with port " << port_);
     }
   }
 
-  RCLCPP_INFO(rclcpp::get_logger("MechabotInterface"), "Hardware stopped");
+  RCLCPP_INFO(rclcpp::get_logger("AstraInterface"), "Hardware stopped");
   return CallbackReturn::SUCCESS;
 }
 
 
-hardware_interface::return_type MechabotInterface::read(const rclcpp::Time &,
+hardware_interface::return_type AstraInterface::read(const rclcpp::Time &,
                                                           const rclcpp::Duration &)
 {
   // Only try to read if data is available
@@ -176,7 +176,7 @@ hardware_interface::return_type MechabotInterface::read(const rclcpp::Time &,
     }
     catch(const std::exception& e)
     {
-      static auto logger = rclcpp::get_logger("MechabotInterface");
+      static auto logger = rclcpp::get_logger("AstraInterface");
       static auto clock = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
       RCLCPP_WARN_THROTTLE(logger, *clock, 1000, 
                            "Failed to read from serial: %s", e.what());
@@ -186,7 +186,7 @@ hardware_interface::return_type MechabotInterface::read(const rclcpp::Time &,
 }
 
 
-hardware_interface::return_type MechabotInterface::write(const rclcpp::Time &,
+hardware_interface::return_type AstraInterface::write(const rclcpp::Time &,
                                                           const rclcpp::Duration &)
 {
   // Implement communication protocol with the Arduino
@@ -222,7 +222,7 @@ hardware_interface::return_type MechabotInterface::write(const rclcpp::Time &,
   }
   catch (...)
   {
-    RCLCPP_ERROR_STREAM(rclcpp::get_logger("MechabotInterface"),
+    RCLCPP_ERROR_STREAM(rclcpp::get_logger("AstraInterface"),
                         "Something went wrong while sending the message "
                             << message_stream.str() << " to the port " << port_);
     return hardware_interface::return_type::ERROR;
@@ -230,8 +230,8 @@ hardware_interface::return_type MechabotInterface::write(const rclcpp::Time &,
 
   return hardware_interface::return_type::OK;
 }
-}  // namespace Mechabot_firmware
+}  // namespace Astra_firmware
 
-PLUGINLIB_EXPORT_CLASS(mechabot_firmware::MechabotInterface, hardware_interface::SystemInterface)
+PLUGINLIB_EXPORT_CLASS(astra_firmware::AstraInterface, hardware_interface::SystemInterface)
 
 //"rp05.30,ln12.45,"

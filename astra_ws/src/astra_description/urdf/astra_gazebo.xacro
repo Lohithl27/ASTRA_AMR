@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="mechabot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="astra" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- Wheels -->
     <gazebo reference="right_wheel_link">
@@ -63,7 +63,7 @@
     <gazebo>
         <!-- ign ros2_control -->
         <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-            <parameters>$(find mechabot_controller)/config/mechabot_controllers.yaml</parameters>
+            <parameters>$(find astra_controller)/config/astra_controllers.yaml</parameters>
         </plugin>
 
         <!-- lidar and camera -->
@@ -75,7 +75,7 @@
         <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/>
     </gazebo>
 
-    <!-- MechaBot Sensors-->
+    <!-- astra Sensors-->
 
     <!-- Lidar -->
     <gazebo reference="lidar_link">

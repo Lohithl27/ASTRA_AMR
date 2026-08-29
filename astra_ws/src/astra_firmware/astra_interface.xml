@@ -1,10 +1,10 @@
-<library path="mechabot_firmware">
-    <class name="mechabot_firmware/MechabotInterface"
-      type="mechabot_firmware::MechabotInterface"
+<library path="astra_firmware">
+    <class name="astra_firmware/AstraInterface"
+      type="astra_firmware::AstraInterface"
       base_class_type="hardware_interface::SystemInterface"
     >
       <description>
-        Mechabot Hardware Interface
+        Astra Hardware Interface
       </description>
     </class>
   </library>

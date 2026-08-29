@@ -6,10 +6,10 @@
     <max_step_size>0.01</max_step_size>
   </physics>
 
-    <model name='mechabot_dock'>
+    <model name='astra_dock'>
         <static>true</static>
         <include>
-            <uri>model://mechabot_dock</uri>
+            <uri>model://astra_dock</uri>
         </include>
         <pose frame=''>1.5 5.2 0 0 0 1.57</pose>
     </model>

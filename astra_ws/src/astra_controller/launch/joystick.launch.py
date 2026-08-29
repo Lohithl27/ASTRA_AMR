@@ -9,7 +9,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     
-    mechabot_controller_pkg = get_package_share_directory('mechabot_controller')
+    astra_controller_pkg = get_package_share_directory('astra_controller')
 
     use_sim_time_arg = DeclareLaunchArgument(name="use_sim_time", default_value="True",
                                       description="Use simulated time"
@@ -18,7 +18,7 @@ def generate_launch_description():
     joy_teleop = Node(
         package="joy_teleop",
         executable="joy_teleop",
-        parameters=[os.path.join(get_package_share_directory("mechabot_controller"), "config", "joy_teleop.yaml"),
+        parameters=[os.path.join(get_package_share_directory("astra_controller"), "config", "joy_teleop.yaml"),
                     {"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
@@ -26,7 +26,7 @@ def generate_launch_description():
         package="joy",
         executable="joy_node",
         name="joystick",
-        parameters=[os.path.join(get_package_share_directory("mechabot_controller"), "config", "joy_config.yaml"),
+        parameters=[os.path.join(get_package_share_directory("astra_controller"), "config", "joy_config.yaml"),
                     {"use_sim_time": LaunchConfiguration("use_sim_time")}]
     )
     
@@ -38,9 +38,9 @@ def generate_launch_description():
         ),
         launch_arguments={
             "cmd_vel_out": "wheel_controller/cmd_vel_unstamped",
-            "config_locks": os.path.join(mechabot_controller_pkg, "config", "twist_mux_locks.yaml"),
-            "config_topics": os.path.join(mechabot_controller_pkg, "config", "twist_mux_topics.yaml"),
-            "config_joy": os.path.join(mechabot_controller_pkg, "config", "twist_mux_joy.yaml"),
+            "config_locks": os.path.join(astra_controller_pkg, "config", "twist_mux_locks.yaml"),
+            "config_topics": os.path.join(astra_controller_pkg, "config", "twist_mux_topics.yaml"),
+            "config_joy": os.path.join(astra_controller_pkg, "config", "twist_mux_joy.yaml"),
             "use_sim_time": LaunchConfiguration("use_sim_time"),
         }.items(),
     )

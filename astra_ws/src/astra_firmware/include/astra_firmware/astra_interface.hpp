@@ -1,5 +1,5 @@
-#ifndef MECHABOT_INTERFACE_HPP
-#define MECHABOT_INTERFACE_HPP
+#ifndef ASTRA_INTERFACE_HPP
+#define ASTRA_INTERFACE_HPP
 
 #include <rclcpp/rclcpp.hpp>
 #include <hardware_interface/system_interface.hpp>
@@ -11,16 +11,16 @@
 #include <string>
 
 
-namespace mechabot_firmware
+namespace astra_firmware
 {
 
 using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
 
-class MechabotInterface : public hardware_interface::SystemInterface
+class AstraInterface : public hardware_interface::SystemInterface
 {
 public:
-  MechabotInterface();
-  virtual ~MechabotInterface();
+  AstraInterface();
+  virtual ~AstraInterface();
 
   // Implementing rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface
   CallbackReturn on_activate(const rclcpp_lifecycle::State &) override;
@@ -41,7 +41,7 @@ private:
   std::vector<double> velocity_states_;
   rclcpp::Time last_run_;
 };
-}  // namespace mechabot_firmware
+}  // namespace astra_firmware
 
 
-#endif  // MECHABOT_INTERFACE_HPP
+#endif  // ASTRA_INTERFACE_HPP

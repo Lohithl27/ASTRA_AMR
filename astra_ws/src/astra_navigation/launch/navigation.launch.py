@@ -11,10 +11,10 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration("use_sim_time")
     lifecycle_nodes = ["controller_server", "planner_server", "smoother_server", "bt_navigator", "behavior_server", "waypoint_follower"]
 
-    mechabot_navigation_pkg = get_package_share_directory("mechabot_navigation")
+    astra_navigation_pkg = get_package_share_directory("astra_navigation")
 
     bt_tree_path = os.path.join(
-        mechabot_navigation_pkg,
+        astra_navigation_pkg,
         "behavior_tree",
         "simple_navigation_w_replanning_and_recovery.xml"
     )
@@ -29,7 +29,7 @@ def generate_launch_description():
         executable="controller_server",
         output="screen",
         parameters=[
-            os.path.join(mechabot_navigation_pkg, "config", "controller_server.yaml"),
+            os.path.join(astra_navigation_pkg, "config", "controller_server.yaml"),
             {"use_sim_time": use_sim_time}
         ],
     )
@@ -40,7 +40,7 @@ def generate_launch_description():
         name="planner_server",
         output="screen",
         parameters=[
-            os.path.join(mechabot_navigation_pkg, "config", "planner_server.yaml"),
+            os.path.join(astra_navigation_pkg, "config", "planner_server.yaml"),
             {"use_sim_time": use_sim_time}
         ],
     )
@@ -51,7 +51,7 @@ def generate_launch_description():
         name="behavior_server",
         output="screen",
         parameters=[
-            os.path.join(mechabot_navigation_pkg, "config", "behavior_server.yaml"),
+            os.path.join(astra_navigation_pkg, "config", "behavior_server.yaml"),
             {"use_sim_time": use_sim_time}
         ],
     )
@@ -62,7 +62,7 @@ def generate_launch_description():
         name="bt_navigator",
         output="screen",
         parameters=[
-            os.path.join(mechabot_navigation_pkg, "config", "bt_navigator.yaml"),
+            os.path.join(astra_navigation_pkg, "config", "bt_navigator.yaml"),
             {
                 "use_sim_time": use_sim_time,
                 "default_nav_to_pose_bt_xml": bt_tree_path,
@@ -77,7 +77,7 @@ def generate_launch_description():
         name="smoother_server",
         output="screen",
         parameters=[
-            os.path.join(mechabot_navigation_pkg, "config", "smoother_server.yaml"),
+            os.path.join(astra_navigation_pkg, "config", "smoother_server.yaml"),
             {"use_sim_time": use_sim_time}
         ],
     )
@@ -88,7 +88,7 @@ def generate_launch_description():
         name="waypoint_follower",
         output="screen",
         parameters=[
-            os.path.join(mechabot_navigation_pkg, "config", "waypoint_follower.yaml"),
+            os.path.join(astra_navigation_pkg, "config", "waypoint_follower.yaml"),
             {"use_sim_time": use_sim_time}
         ],
     )

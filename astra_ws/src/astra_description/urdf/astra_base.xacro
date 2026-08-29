@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="mechabot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="astra" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <link name="base_footprint"/>
 
@@ -12,7 +12,7 @@
         <visual>
             <origin xyz="0.0 0.0 -0.0125" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/mechabot_base_link.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/astra_base_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -21,7 +21,7 @@
         <collision>
             <origin xyz="0.0 0.0 -0.0125" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/mechabot_base_link.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/astra_base_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -44,7 +44,7 @@
         <visual>
             <origin xyz="0.0 0.0925 -0.034" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/mechabot_right_wheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/astra_right_wheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue">
                 <color rgba="0.0 0.0 0.6 1.0"/>
@@ -54,7 +54,7 @@
             <origin xyz="0.0 0.0 -0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <sphere radius="0.034"/>
-                <!-- <mesh filename="package://mechabot_description/meshes/mechabot_right_wheel.stl" scale="0.001 0.001 0.001"/> -->
+                <!-- <mesh filename="package://astra_description/meshes/astra_right_wheel.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="blue">
                 <color rgba="0.0 0.0 0.6 1.0"/>
@@ -78,7 +78,7 @@
         <visual>
             <origin xyz="0.0 -0.0925 -0.034" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/mechabot_left_wheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/astra_left_wheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue">
                 <color rgba="0.0 0.0 0.6 1.0"/>
@@ -88,7 +88,7 @@
             <origin xyz="0.0 0.0 -0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <sphere radius="0.034"/>
-                <!-- <mesh filename="package://mechabot_description/meshes/mechabot_left_wheel.stl" scale="0.001 0.001 0.001"/> -->
+                <!-- <mesh filename="package://astra_description/meshes/astra_left_wheel.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="blue">
                 <color rgba="0.0 0.0 0.6 1.0"/>
@@ -112,7 +112,7 @@
         <visual>
             <origin xyz="-0.085 0.065 -0.021" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/front_right_castor.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/front_right_castor.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -122,7 +122,7 @@
             <origin xyz="0.0 0.0 -0.0125" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <sphere radius="0.00625"/>
-                <!-- <mesh filename="package://mechabot_description/meshes/front_right_castor.stl" scale="0.001 0.001 0.001"/> -->
+                <!-- <mesh filename="package://astra_description/meshes/front_right_castor.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -145,7 +145,7 @@
         <visual>
             <origin xyz="-0.085 -0.065 -0.021" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/front_left_castor.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/front_left_castor.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -155,7 +155,7 @@
             <origin xyz="0.0 0.0 -0.0125" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <sphere radius="0.00625"/>
-                <!-- <mesh filename="package://mechabot_description/meshes/front_left_castor.stl" scale="0.001 0.001 0.001"/> -->
+                <!-- <mesh filename="package://astra_description/meshes/front_left_castor.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -178,7 +178,7 @@
         <visual>
             <origin xyz="0.085 0.065 -0.0205" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/rear_right_castor.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/rear_right_castor.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -188,7 +188,7 @@
             <origin xyz="0.0 0.0 -0.0125" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <sphere radius="0.00625"/>
-                <!-- <mesh filename="package://mechabot_description/meshes/rear_right_castor.stl" scale="0.001 0.001 0.001"/> -->
+                <!-- <mesh filename="package://astra_description/meshes/rear_right_castor.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -211,7 +211,7 @@
         <visual>
             <origin xyz="0.085 -0.065 -0.0205" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/rear_left_castor.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/rear_left_castor.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -221,7 +221,7 @@
             <origin xyz="0.0 0.0 -0.0125" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <sphere radius="0.00625"/>
-                <!-- <mesh filename="package://mechabot_description/meshes/rear_left_castor.stl" scale="0.001 0.001 0.001"/> -->
+                <!-- <mesh filename="package://astra_description/meshes/rear_left_castor.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="grey">
                 <color rgba="0.8 0.8 0.8 1.0"/>
@@ -244,7 +244,7 @@
         <visual>
             <origin xyz="0.0 0.0 -0.1125" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/mechabot_toplid.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/astra_toplid.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="red">
                 <color rgba="0.6 0.0 0.0 1.0"/>
@@ -253,7 +253,7 @@
         <collision>
             <origin xyz="0.0 0.0 -0.1125" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://mechabot_description/meshes/mechabot_toplid.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://astra_description/meshes/astra_toplid.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="red">
                 <color rgba="0.6 0.0 0.0 1.0"/>

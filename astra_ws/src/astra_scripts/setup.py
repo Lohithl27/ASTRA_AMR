@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'mechabot_scripts'
+package_name = 'astra_scripts'
 
 setup(
     name=package_name,
@@ -13,8 +13,8 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='utk',
-    maintainer_email='kutkarsh706@gmail.com',
+    maintainer='mrl',
+    maintainer_email='mrlohithmdy@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     extras_require={
@@ -24,15 +24,15 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'read_lidar = mechabot_scripts.read_lidar:main',
-            'read_imu = mechabot_scripts.read_imu:main',
-            'read_camera = mechabot_scripts.read_camera:main',
-            'detect_marker = mechabot_scripts.detect_marker:main',
-            'maze_solver = mechabot_scripts.maze_solver:main',
-            'obstacle_avoidance = mechabot_scripts.obstacle_avoidance:main',
-            'auto_docking_undocking = mechabot_scripts.auto_docking_undocking:main',
-            'docking_with_patrolling = mechabot_scripts.docking_with_patrolling:main',
-            'auto_docking_with_battery = mechabot_scripts.auto_docking_with_battery:main',
+            'read_lidar = astra_scripts.read_lidar:main',
+            'read_imu = astra_scripts.read_imu:main',
+            'read_camera = astra_scripts.read_camera:main',
+            'detect_marker = astra_scripts.detect_marker:main',
+            'maze_solver = astra_scripts.maze_solver:main',
+            'obstacle_avoidance = astra_scripts.obstacle_avoidance:main',
+            'auto_docking_undocking = astra_scripts.auto_docking_undocking:main',
+            'docking_with_patrolling = astra_scripts.docking_with_patrolling:main',
+            'auto_docking_with_battery = astra_scripts.auto_docking_with_battery:main',
         ],
     },
 )
