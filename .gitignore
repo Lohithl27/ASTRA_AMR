@@ -1,0 +1,37 @@
+# ROS generated files
+build/
+install/
+log/
+devel/
+
+# Python
+__pycache__/
+*.pyc
+
+# Temporary files
+*.swp
+# ROS generated files
+build/
+install/
+log/
+devel/
+
+# Python
+__pycache__/
+*.pyc
+
+# Temporary files
+*.swp
+*~
+
+# VS Code
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ROS bags
+*.bag
+*.db3
