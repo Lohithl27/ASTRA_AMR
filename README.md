@@ -279,7 +279,7 @@ Never assume a software configuration is safe for a physical robot without valid
 
 ## 👤 Maintainer
 
-**Lohith L**  
+**Lohith M R**  
 GitHub: [@Lohithl27](https://github.com/Lohithl27)
 
 ---
